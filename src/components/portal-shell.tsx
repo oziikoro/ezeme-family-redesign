@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import logo from '@/assets/ezeme-logo-black.svg.asset.json';
 import { navigation, searchPages } from '@/lib/portal';
 
-export function PortalShell({ children, active = '/' }: { children: ReactNode; active?: string }) {
+export function PortalShell({ children, active = '/portal' }: { children: ReactNode; active?: string }) {
   const [menu, setMenu] = useState(false);
   const [search, setSearch] = useState(false);
   const [query, setQuery] = useState('');
@@ -21,11 +21,12 @@ export function PortalShell({ children, active = '/' }: { children: ReactNode; a
   const results = searchPages(query).slice(0, 30);
   return <>
     <header className="frame masthead">
-      <a href="/" aria-label="Ezeme home"><img className="brand-image" src={logo.url} width="170" height="51" alt="Ezeme" /></a>
+      <a href="/portal" aria-label="Ezeme family home"><img className="brand-image" src={logo.url} width="170" height="51" alt="Ezeme" /></a>
       <nav className={`main-nav ${menu ? 'open' : ''}`} aria-label="Primary navigation">
         {navigation.map(item => <a key={item.href} href={item.href} className={active === item.href ? 'active' : ''} aria-current={active === item.href ? 'page' : undefined}>{item.label}</a>)}
       </nav>
       <div className="header-actions">
+        <a href="/" className="enterprise-return" title="Back to the enterprise" aria-label="Back to the enterprise"><ArrowUpRight size={17} /></a>
         <span className="private-label"><LockKeyhole size={11} /> FAMILY PORTAL</span>
         <Button size="icon" variant="ghost" aria-label="Search the archive" title="Search the archive" onClick={() => setSearch(true)}><Search size={19} /></Button>
         <Button size="icon" variant="ghost" className="mobile-menu" aria-label="Toggle navigation" aria-expanded={menu} onClick={() => setMenu(!menu)}>{menu ? <X /> : <Menu />}</Button>
@@ -33,7 +34,7 @@ export function PortalShell({ children, active = '/' }: { children: ReactNode; a
     </header>
     <main>{children}</main>
     <footer className="footer"><div className="frame">
-      <div className="footer-top"><a href="/" aria-label="Ezeme home"><img src={logo.url} className="brand-image" width="170" height="51" alt="Ezeme" /></a><p className="footer-note">Held for the generation after.</p><span className="private-label"><LockKeyhole size={11} /> PRIVATE · NOT FOR PUBLICATION</span></div>
+      <div className="footer-top"><a href="/portal" aria-label="Ezeme family home"><img src={logo.url} className="brand-image" width="170" height="51" alt="Ezeme" /></a><p className="footer-note">Held for the generation after.</p><span className="private-label"><LockKeyhole size={11} /> PRIVATE · NOT FOR PUBLICATION</span></div>
       <div className="footer-bottom"><span>© 2026 Ezeme. All rights reserved.</span><span>Nkpor, Idemili North, Anambra State, Nigeria.</span><span>The House of Ezeme</span></div>
     </div></footer>
     {search && <div className="search-overlay" onClick={() => setSearch(false)}><section role="dialog" aria-modal="true" aria-labelledby="search-title" className="search-dialog" onClick={e => e.stopPropagation()}>

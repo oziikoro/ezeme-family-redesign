@@ -1,0 +1,6 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { ArrowUpRight } from 'lucide-react';
+import { SiteLayout, PageIntro } from '@/components/ezeme-layout';
+import { businesses, pageHead } from '@/lib/ezeme';
+export const Route = createFileRoute('/businesses')({ head: () => pageHead('Businesses', 'Ozikoro, Ozituma and OmaPolo: the existing businesses under Ozi Ikoro Limited.'), component: Businesses });
+function Businesses() { return <SiteLayout><PageIntro label="OUR BUSINESSES · TODAY" title="Work that is real." text="Three businesses operate under Ozi Ikoro Limited. Nothing appears here before it exists." /><section className="section"><div className="site-wrap business-grid">{businesses.map(b => <article className="business-item" key={b.name}><div className="business-meta"><span>{b.category.toUpperCase()}</span><span>{b.status.toUpperCase()}</span></div><h3>{b.name}</h3><p>{b.description}</p><a href={b.url} target="_blank" rel="noreferrer">Visit {b.name}<ArrowUpRight size={16} /></a></article>)}</div></section><section className="note-band"><div className="site-wrap"><h2>Subsidiaries, not the whole.</h2><p>Ozituma and OmaPolo are live; Ozikoro is building. All three sit under Ozi Ikoro Limited (RC 8955047). The sectors are the group’s ambition; the workshop is the business being started.</p></div></section></SiteLayout>; }

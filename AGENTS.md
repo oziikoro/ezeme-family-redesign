@@ -13,3 +13,4 @@
 - Treat the portal as private family material: retain noindex metadata and do not publish without an explicit request and appropriate access protection.
 - Keep the original logo in immutable asset pointers, so the supplied identity remains unchanged across the redesign.
 - Pre-optimize React, React DOM and the portal's shared UI dependencies together, so late dependency discovery cannot split the live preview's React hook dispatcher across optimizer versions.
+- Keep the enterprise at the root URL and the family overview at /portal, with enterprise CSS scoped to its shell, so the two supplied designs coexist without breaking archived document URLs.
