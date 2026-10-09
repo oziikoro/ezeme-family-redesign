@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep imported website content in a static page catalogue and render it through TanStack routes, so original document URLs and internal references remain available without introducing a second framework.
+- Treat the portal as private family material: retain noindex metadata and do not publish without an explicit request and appropriate access protection.
+- Keep the original logo in immutable asset pointers, so the supplied identity remains unchanged across the redesign.
