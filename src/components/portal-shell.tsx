@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import logo from '@/assets/ezeme-logo-black.svg.asset.json';
 import { navigation, searchPages } from '@/lib/portal';
 
-export function PortalShell({ children, active = '/' }: { children: ReactNode; active?: string }) {
+export function PortalShell({ children, active = '/portal' }: { children: ReactNode; active?: string }) {
   const [menu, setMenu] = useState(false);
   const [search, setSearch] = useState(false);
   const [query, setQuery] = useState('');
@@ -34,7 +34,7 @@ export function PortalShell({ children, active = '/' }: { children: ReactNode; a
     </header>
     <main>{children}</main>
     <footer className="footer"><div className="frame">
-      <div className="footer-top"><a href="/" aria-label="Ezeme home"><img src={logo.url} className="brand-image" width="170" height="51" alt="Ezeme" /></a><p className="footer-note">Held for the generation after.</p><span className="private-label"><LockKeyhole size={11} /> PRIVATE · NOT FOR PUBLICATION</span></div>
+      <div className="footer-top"><a href="/portal" aria-label="Ezeme family home"><img src={logo.url} className="brand-image" width="170" height="51" alt="Ezeme" /></a><p className="footer-note">Held for the generation after.</p><span className="private-label"><LockKeyhole size={11} /> PRIVATE · NOT FOR PUBLICATION</span></div>
       <div className="footer-bottom"><span>© 2026 Ezeme. All rights reserved.</span><span>Nkpor, Idemili North, Anambra State, Nigeria.</span><span>The House of Ezeme</span></div>
     </div></footer>
     {search && <div className="search-overlay" onClick={() => setSearch(false)}><section role="dialog" aria-modal="true" aria-labelledby="search-title" className="search-dialog" onClick={e => e.stopPropagation()}>
