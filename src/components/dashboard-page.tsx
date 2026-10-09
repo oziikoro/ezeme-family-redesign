@@ -6,7 +6,8 @@ import { dashboardChildren, dashboardCaveat, dashboardModel, dashboardStats } fr
 
 function timelineHtml() {
   const html = pages['dashboard.html']?.html ?? '';
-  const marker = html.lastIndexOf('<section>');
+  const heading = html.indexOf('The year-by-year');
+  const marker = heading >= 0 ? html.lastIndexOf('<section>', heading) : -1;
   const slice = marker >= 0 ? html.slice(marker) : html;
   return slice.replace(/<h2>The year-by-year<\/h2>\s*<p>[^<]*<\/p>/, '');
 }
