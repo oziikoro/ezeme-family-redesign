@@ -5,7 +5,7 @@ export const pages: Record<string, PortalPage> = rawPages;
 export const entries = Object.entries(pages);
 export const libraryEntries = entries.filter(([path]) => path.startsWith('library/') && path !== 'library/index.html');
 export const navigation = [
-  { label: 'Overview', href: '/' },
+  { label: 'Overview', href: '/portal' },
   { label: 'The House', href: '/house' },
   { label: 'The five', href: '/the-five' },
   { label: 'Programme', href: '/programme' },

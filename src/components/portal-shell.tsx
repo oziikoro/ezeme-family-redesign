@@ -21,11 +21,12 @@ export function PortalShell({ children, active = '/' }: { children: ReactNode; a
   const results = searchPages(query).slice(0, 30);
   return <>
     <header className="frame masthead">
-      <a href="/" aria-label="Ezeme home"><img className="brand-image" src={logo.url} width="170" height="51" alt="Ezeme" /></a>
+      <a href="/portal" aria-label="Ezeme family home"><img className="brand-image" src={logo.url} width="170" height="51" alt="Ezeme" /></a>
       <nav className={`main-nav ${menu ? 'open' : ''}`} aria-label="Primary navigation">
         {navigation.map(item => <a key={item.href} href={item.href} className={active === item.href ? 'active' : ''} aria-current={active === item.href ? 'page' : undefined}>{item.label}</a>)}
       </nav>
       <div className="header-actions">
+        <a href="/" className="enterprise-return" title="Back to the enterprise" aria-label="Back to the enterprise"><ArrowUpRight size={17} /></a>
         <span className="private-label"><LockKeyhole size={11} /> FAMILY PORTAL</span>
         <Button size="icon" variant="ghost" aria-label="Search the archive" title="Search the archive" onClick={() => setSearch(true)}><Search size={19} /></Button>
         <Button size="icon" variant="ghost" className="mobile-menu" aria-label="Toggle navigation" aria-expanded={menu} onClick={() => setMenu(!menu)}>{menu ? <X /> : <Menu />}</Button>

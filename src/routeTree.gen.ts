@@ -11,10 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
+import { Route as BusinessesRouteImport } from './routes/businesses'
+import { Route as FamilyRouteImport } from './routes/family'
 import { Route as HouseRouteImport } from './routes/house'
 import { Route as LibraryRouteImport } from './routes/library'
+import { Route as ManufacturingRouteImport } from './routes/manufacturing'
 import { Route as PlansRouteImport } from './routes/plans'
+import { Route as PortalRouteImport } from './routes/portal'
 import { Route as ProgrammeRouteImport } from './routes/programme'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as RecordRouteImport } from './routes/record'
+import { Route as SectorsRouteImport } from './routes/sectors'
 import { Route as TheFiveRouteImport } from './routes/the-five'
 
 const IndexRoute = IndexRouteImport.update({
@@ -27,6 +34,16 @@ const SplatRoute = SplatRouteImport.update({
   path: '/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessesRoute = BusinessesRouteImport.update({
+  id: '/businesses',
+  path: '/businesses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FamilyRoute = FamilyRouteImport.update({
+  id: '/family',
+  path: '/family',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HouseRoute = HouseRouteImport.update({
   id: '/house',
   path: '/house',
@@ -37,14 +54,39 @@ const LibraryRoute = LibraryRouteImport.update({
   path: '/library',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ManufacturingRoute = ManufacturingRouteImport.update({
+  id: '/manufacturing',
+  path: '/manufacturing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PlansRoute = PlansRouteImport.update({
   id: '/plans',
   path: '/plans',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortalRoute = PortalRouteImport.update({
+  id: '/portal',
+  path: '/portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgrammeRoute = ProgrammeRouteImport.update({
   id: '/programme',
   path: '/programme',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecordRoute = RecordRouteImport.update({
+  id: '/record',
+  path: '/record',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SectorsRoute = SectorsRouteImport.update({
+  id: '/sectors',
+  path: '/sectors',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TheFiveRoute = TheFiveRouteImport.update({
@@ -56,55 +98,117 @@ const TheFiveRoute = TheFiveRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/businesses': typeof BusinessesRoute
+  '/family': typeof FamilyRoute
   '/house': typeof HouseRoute
   '/library': typeof LibraryRoute
+  '/manufacturing': typeof ManufacturingRoute
   '/plans': typeof PlansRoute
+  '/portal': typeof PortalRoute
   '/programme': typeof ProgrammeRoute
+  '/projects': typeof ProjectsRoute
+  '/record': typeof RecordRoute
+  '/sectors': typeof SectorsRoute
   '/the-five': typeof TheFiveRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/businesses': typeof BusinessesRoute
+  '/family': typeof FamilyRoute
   '/house': typeof HouseRoute
   '/library': typeof LibraryRoute
+  '/manufacturing': typeof ManufacturingRoute
   '/plans': typeof PlansRoute
+  '/portal': typeof PortalRoute
   '/programme': typeof ProgrammeRoute
+  '/projects': typeof ProjectsRoute
+  '/record': typeof RecordRoute
+  '/sectors': typeof SectorsRoute
   '/the-five': typeof TheFiveRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/businesses': typeof BusinessesRoute
+  '/family': typeof FamilyRoute
   '/house': typeof HouseRoute
   '/library': typeof LibraryRoute
+  '/manufacturing': typeof ManufacturingRoute
   '/plans': typeof PlansRoute
+  '/portal': typeof PortalRoute
   '/programme': typeof ProgrammeRoute
+  '/projects': typeof ProjectsRoute
+  '/record': typeof RecordRoute
+  '/sectors': typeof SectorsRoute
   '/the-five': typeof TheFiveRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/$' | '/house' | '/library' | '/plans' | '/programme' | '/the-five'
+    | '/'
+    | '/$'
+    | '/businesses'
+    | '/family'
+    | '/house'
+    | '/library'
+    | '/manufacturing'
+    | '/plans'
+    | '/portal'
+    | '/programme'
+    | '/projects'
+    | '/record'
+    | '/sectors'
+    | '/the-five'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$' | '/house' | '/library' | '/plans' | '/programme' | '/the-five'
+  to:
+    | '/'
+    | '/$'
+    | '/businesses'
+    | '/family'
+    | '/house'
+    | '/library'
+    | '/manufacturing'
+    | '/plans'
+    | '/portal'
+    | '/programme'
+    | '/projects'
+    | '/record'
+    | '/sectors'
+    | '/the-five'
   id:
     | '__root__'
     | '/'
     | '/$'
+    | '/businesses'
+    | '/family'
     | '/house'
     | '/library'
+    | '/manufacturing'
     | '/plans'
+    | '/portal'
     | '/programme'
+    | '/projects'
+    | '/record'
+    | '/sectors'
     | '/the-five'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
+  BusinessesRoute: typeof BusinessesRoute
+  FamilyRoute: typeof FamilyRoute
   HouseRoute: typeof HouseRoute
   LibraryRoute: typeof LibraryRoute
+  ManufacturingRoute: typeof ManufacturingRoute
   PlansRoute: typeof PlansRoute
+  PortalRoute: typeof PortalRoute
   ProgrammeRoute: typeof ProgrammeRoute
+  ProjectsRoute: typeof ProjectsRoute
+  RecordRoute: typeof RecordRoute
+  SectorsRoute: typeof SectorsRoute
   TheFiveRoute: typeof TheFiveRoute
 }
 
@@ -124,6 +228,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/businesses': {
+      id: '/businesses'
+      path: '/businesses'
+      fullPath: '/businesses'
+      preLoaderRoute: typeof BusinessesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/family': {
+      id: '/family'
+      path: '/family'
+      fullPath: '/family'
+      preLoaderRoute: typeof FamilyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/house': {
       id: '/house'
       path: '/house'
@@ -138,6 +256,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LibraryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/manufacturing': {
+      id: '/manufacturing'
+      path: '/manufacturing'
+      fullPath: '/manufacturing'
+      preLoaderRoute: typeof ManufacturingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/plans': {
       id: '/plans'
       path: '/plans'
@@ -145,11 +270,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlansRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portal': {
+      id: '/portal'
+      path: '/portal'
+      fullPath: '/portal'
+      preLoaderRoute: typeof PortalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programme': {
       id: '/programme'
       path: '/programme'
       fullPath: '/programme'
       preLoaderRoute: typeof ProgrammeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/record': {
+      id: '/record'
+      path: '/record'
+      fullPath: '/record'
+      preLoaderRoute: typeof RecordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sectors': {
+      id: '/sectors'
+      path: '/sectors'
+      fullPath: '/sectors'
+      preLoaderRoute: typeof SectorsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/the-five': {
@@ -165,10 +318,17 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
+  BusinessesRoute: BusinessesRoute,
+  FamilyRoute: FamilyRoute,
   HouseRoute: HouseRoute,
   LibraryRoute: LibraryRoute,
+  ManufacturingRoute: ManufacturingRoute,
   PlansRoute: PlansRoute,
+  PortalRoute: PortalRoute,
   ProgrammeRoute: ProgrammeRoute,
+  ProjectsRoute: ProjectsRoute,
+  RecordRoute: RecordRoute,
+  SectorsRoute: SectorsRoute,
   TheFiveRoute: TheFiveRoute,
 }
 export const routeTree = rootRouteImport
