@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 describe('Button child composition', () => {
   it('renders a linked button and runs the child and wrapper click handlers', () => {
-    const childClick = vi.fn();
+    const childClick = vi.fn((event: React.MouseEvent<HTMLAnchorElement>) => event.preventDefault());
     const buttonClick = vi.fn();
     render(<Button asChild onClick={buttonClick}><a href="/house" onClick={childClick}>Enter the House</a></Button>);
     const link = screen.getByRole('link', { name: 'Enter the House' });
