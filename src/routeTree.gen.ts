@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SplatRouteImport } from './routes/$'
+import { Route as HouseRouteImport } from './routes/house'
+import { Route as LibraryRouteImport } from './routes/library'
+import { Route as PlansRouteImport } from './routes/plans'
+import { Route as ProgrammeRouteImport } from './routes/programme'
+import { Route as TheFiveRouteImport } from './routes/the-five'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HouseRoute = HouseRouteImport.update({
+  id: '/house',
+  path: '/house',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibraryRoute = LibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlansRoute = PlansRouteImport.update({
+  id: '/plans',
+  path: '/plans',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgrammeRoute = ProgrammeRouteImport.update({
+  id: '/programme',
+  path: '/programme',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TheFiveRoute = TheFiveRouteImport.update({
+  id: '/the-five',
+  path: '/the-five',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '/house': typeof HouseRoute
+  '/library': typeof LibraryRoute
+  '/plans': typeof PlansRoute
+  '/programme': typeof ProgrammeRoute
+  '/the-five': typeof TheFiveRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '/house': typeof HouseRoute
+  '/library': typeof LibraryRoute
+  '/plans': typeof PlansRoute
+  '/programme': typeof ProgrammeRoute
+  '/the-five': typeof TheFiveRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '/house': typeof HouseRoute
+  '/library': typeof LibraryRoute
+  '/plans': typeof PlansRoute
+  '/programme': typeof ProgrammeRoute
+  '/the-five': typeof TheFiveRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/$' | '/house' | '/library' | '/plans' | '/programme' | '/the-five'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/$' | '/house' | '/library' | '/plans' | '/programme' | '/the-five'
+  id:
+    | '__root__'
+    | '/'
+    | '/$'
+    | '/house'
+    | '/library'
+    | '/plans'
+    | '/programme'
+    | '/the-five'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SplatRoute: typeof SplatRoute
+  HouseRoute: typeof HouseRoute
+  LibraryRoute: typeof LibraryRoute
+  PlansRoute: typeof PlansRoute
+  ProgrammeRoute: typeof ProgrammeRoute
+  TheFiveRoute: typeof TheFiveRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/house': {
+      id: '/house'
+      path: '/house'
+      fullPath: '/house'
+      preLoaderRoute: typeof HouseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library': {
+      id: '/library'
+      path: '/library'
+      fullPath: '/library'
+      preLoaderRoute: typeof LibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plans': {
+      id: '/plans'
+      path: '/plans'
+      fullPath: '/plans'
+      preLoaderRoute: typeof PlansRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programme': {
+      id: '/programme'
+      path: '/programme'
+      fullPath: '/programme'
+      preLoaderRoute: typeof ProgrammeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/the-five': {
+      id: '/the-five'
+      path: '/the-five'
+      fullPath: '/the-five'
+      preLoaderRoute: typeof TheFiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SplatRoute: SplatRoute,
+  HouseRoute: HouseRoute,
+  LibraryRoute: LibraryRoute,
+  PlansRoute: PlansRoute,
+  ProgrammeRoute: ProgrammeRoute,
+  TheFiveRoute: TheFiveRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
