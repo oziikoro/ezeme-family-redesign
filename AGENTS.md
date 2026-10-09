@@ -12,3 +12,4 @@
 - Keep imported website content in a static page catalogue and render it through TanStack routes, so original document URLs and internal references remain available without introducing a second framework.
 - Treat the portal as private family material: retain noindex metadata and do not publish without an explicit request and appropriate access protection.
 - Keep the original logo in immutable asset pointers, so the supplied identity remains unchanged across the redesign.
+- Pre-optimize React, React DOM and the portal's shared UI dependencies together, so late dependency discovery cannot split the live preview's React hook dispatcher across optimizer versions.
