@@ -249,3 +249,20 @@
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; } }
 
 }
+@scope (.enterprise-site) {
+  :scope { --font-sans: 'DM Sans', sans-serif; --font-display: 'Libre Caslon Display', Georgia, serif; font-family:var(--font-sans); }
+  h1,h2,h3 { font-family:var(--font-display); font-weight:400; line-height:1.07; letter-spacing:0; }
+  p { line-height:1.8; }
+  .hero-bottom { bottom:0; letter-spacing:0; text-transform:none; display:block; }
+  .page-intro { max-width:none; }
+  .hero-content { animation:none; }
+  .project-index { display:flex; flex-wrap:wrap; gap:16px 30px; padding-block:24px; font-size:11px; }
+  .project-index a { border-bottom:1px solid var(--border); padding-bottom:7px; }
+  .source-content .tw { overflow-x:auto; }
+  .source-content table { width:100%; border-collapse:collapse; margin-block:20px; font-size:12px; }
+  .source-content th,.source-content td { border-bottom:1px solid var(--border); text-align:left; padding:18px 16px; vertical-align:top; line-height:1.8; }
+  .source-content th { width:30%; font-weight:500; }
+  .family-bridge p { color:var(--muted-foreground); max-width:600px; }
+  @media (max-width:500px) { .home-hero { min-height:0; height:560px; } .hero-content h1 { font-size:50px; } .hero-content { padding-block:30px 90px; } }
+  @media (prefers-reduced-motion:no-preference) { .hero-content { animation:reveal .8s ease-out; } }
+}
